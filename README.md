@@ -130,7 +130,7 @@ python HttpsFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [
 
 ## ⚠️ 注意
 
-- HTTP 模式下的通信未加密，可能会暴露敏感信息，建议仅在安全的网络环境下使用。
+- HTTP 模式往往具有更快的速度，但在此模式下的通信未加密，可能会暴露敏感信息，建议仅在安全的网络环境下使用。
 
 ## 🛡️ 安全建议
 
