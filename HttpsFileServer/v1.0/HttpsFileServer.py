@@ -14,6 +14,7 @@ import socket  # 导入socket模块以获取主机名和IP地址
 import socket  # 导入socket模块用于网络连接
 import psutil  # 导入psutil模块用于获取系统和网络接口信息
 import concurrent.futures  # 导入concurrent.futures模块，用于使用线程池
+import sys  # 导入sys模块
 
 # 设置命令行参数
 parser = argparse.ArgumentParser(description='HTTP/HTTPS服务器')
@@ -512,10 +513,23 @@ def run_https_server():
         # ssl.PROTOCOL_TLS_SERVER 是一个选择最新版本和最安全的 TLS 协议的枚举值。
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 
+        # 如果程序被打包成了单文件的可执行文件，`sys.executable`将指向该可执行文件
+        # 否则，它将指向 脚本 文件
+        if getattr(sys, 'frozen', False):
+            # 如果程序是被打包的，则返回可执行文件所在目录
+            base_dir = os.path.dirname(sys.executable)
+        else:
+            # 如果程序是以脚本形式运行的，则返回脚本所在目录
+            base_dir = os.path.dirname(__file__)
+
+        # 构建 cert.pem 和 key.pem 文件的绝对路径
+        cert_path = os.path.join(base_dir, 'cert.pem')
+        key_path = os.path.join(base_dir, 'key.pem')
+
         # 使用 load_cert_chain 方法加载证书链（如果有的话）和相应的私钥。
         # certfile 参数指定了证书文件的路径，keyfile 参数指定了私钥文件的路径。
         # 生成无密码的密钥（推荐在生成密钥时直接操作）：openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
-        context.load_cert_chain(certfile='cert.pem', keyfile='key.pem')
+        context.load_cert_chain(certfile = cert_path, keyfile = key_path)
 
         # 使用 SSLContext 对象的 wrap_socket 方法包装原始的 socket，启用 SSL/TLS 功能。
         # server_side=True 表示这个 socket 是服务器端的 socket，这是必须的参数，因为我们在创建服务器。
