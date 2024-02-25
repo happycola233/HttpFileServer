@@ -126,8 +126,8 @@ python HttpsFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [
 
 ## 📸 运行截图
 
-![网页端界面截图](ScreenShot\1.png "网页端界面")
-![服务端界面截图](ScreenShot\2.png "服务端界面")
+![网页端界面截图](ScreenShot/1.png "网页端界面")
+![服务端界面截图](ScreenShot/2.png "服务端界面")
 
 ## ⚠️ 注意
 
