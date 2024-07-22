@@ -100,7 +100,7 @@ HttpFileServer 提供了灵活的文件操作功能，包括重命名、复制�
 ## ⚙️ 命令行用法
 
 ```bash
-python HttpFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [-pw PASSWORD] [-m {http,https,both}]
+python HttpsFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [-pw PASSWORD] [-m {http,https,both}]
 ```
 
 ### 参数说明
@@ -116,11 +116,11 @@ python HttpFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [-
 
 - 启动 HTTP 和 HTTPS 服务器，分别监听 8080 和 8443 端口：
   ```
-  python HttpFileServer.py -hp 8080 -hsp 8443 -m both
+  python HttpsFileServer.py -hp 8080 -hsp 8443 -m both
   ```
 - 仅启动 HTTPS 服务器，监听 443 端口，并设置基本认证：
   ```
-  python HttpFileServer.py -hsp 443 -u admin -pw 123456 -m https
+  python HttpsFileServer.py -hsp 443 -u admin -pw 123456 -m https
   ```
 
 ## 📸 运行截图
