@@ -1,6 +1,6 @@
-# HttpsFileServer 使用说明
+# HttpFileServer 使用说明
 
-HttpsFileServer 是一个使用 Python 编写的多功能 HTTP/HTTPS 文件服务器，旨在提供文件的上传、下载、管理等服务，同时支持基本认证和 SSL 加密传输，确保数据传输的安全性。
+HttpFileServer 是一个使用 Python 编写的多功能 HTTP/HTTPS 文件服务器，旨在提供文件的上传、下载、管理等服务，同时支持基本认证和 SSL 加密传输，确保数据传输的安全性。
 
 ## 🚀 功能介绍
 
@@ -17,7 +17,7 @@ HttpsFileServer 是一个使用 Python 编写的多功能 HTTP/HTTPS 文件服�
 
 ### 🛠️ 重命名、复制和移动功能详解
 
-HttpsFileServer 提供了灵活的文件操作功能，包括重命名、复制和移动文件或文件夹。以下是各功能的详细介绍和使用方法：
+HttpFileServer 提供了灵活的文件操作功能，包括重命名、复制和移动文件或文件夹。以下是各功能的详细介绍和使用方法：
 
 #### 📋 复制操作（包含在重命名功能里面）
 
@@ -100,7 +100,7 @@ HttpsFileServer 提供了灵活的文件操作功能，包括重命名、复制�
 ## ⚙️ 命令行用法
 
 ```bash
-python HttpsFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [-pw PASSWORD] [-m {http,https,both}]
+python HttpFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [-pw PASSWORD] [-m {http,https,both}]
 ```
 
 ### 参数说明
@@ -116,11 +116,11 @@ python HttpsFileServer.py [-h] [-hp HTTP_PORT] [-hsp HTTPS_PORT] [-u USERNAME] [
 
 - 启动 HTTP 和 HTTPS 服务器，分别监听 8080 和 8443 端口：
   ```
-  python HttpsFileServer.py -hp 8080 -hsp 8443 -m both
+  python HttpFileServer.py -hp 8080 -hsp 8443 -m both
   ```
 - 仅启动 HTTPS 服务器，监听 443 端口，并设置基本认证：
   ```
-  python HttpsFileServer.py -hsp 443 -u admin -pw 123456 -m https
+  python HttpFileServer.py -hsp 443 -u admin -pw 123456 -m https
   ```
 
 ## 📸 运行截图
